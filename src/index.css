@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+/* ========================================
+   ROOT
+======================================== */
 
 :root {
   font-family:
@@ -9,21 +14,34 @@
     "Inter",
     "Segoe UI",
     sans-serif;
+
+  color-scheme: dark;
+  background: #050505;
+  color: #ffffff;
 }
 
-@import "tailwindcss";
+/* ========================================
+   TAILWIND THEME
+======================================== */
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
-  --color-bg: #050508;
-  --color-surface: #0c0c14;
+
+  --color-bg: #050505;
+  --color-surface: #0c0c0c;
   --color-muted: #9494a8;
+
   --color-accent: #818cf8;
   --color-accent-dark: #6366f1;
 }
 
+/* ========================================
+   GLOBAL
+======================================== */
+
 html {
   scroll-behavior: smooth;
+  background: #050505;
 }
 
 body {
@@ -40,84 +58,33 @@ body {
     "Segoe UI",
     sans-serif;
 
-  background: var(--color-bg);
+  background: #050505;
   color: #f0f0f5;
+
   overflow-x: hidden;
 }
 
+/* Selection */
+
 ::selection {
   background: rgba(129, 140, 248, 0.35);
-  color: #fff;
+  color: #ffffff;
 }
+
+/* Images */
 
 img {
-  width: 40px;
-  height: 40px;
-  border-radius: 20%;
-  /* Circular */
-  /* border-radius: 10px; /* Rounded corners */
+  max-width: 100%;
 }
-h1{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Inter",
-    "Segoe UI",
-    sans-serif;
 
-  letter-spacing: -0.025em;
-}
-h2{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Inter",
-    "Segoe UI",
-    sans-serif;
+/* Headings */
 
-  letter-spacing: -0.025em;
-}
-h3{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Inter",
-    "Segoe UI",
-    sans-serif;
-
-  letter-spacing: -0.025em;
-}
-h4{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Inter",
-    "Segoe UI",
-    sans-serif;
-
-  letter-spacing: -0.025em;
-}
-h5{
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    "SF Pro Display",
-    "SF Pro Text",
-    "Inter",
-    "Segoe UI",
-    sans-serif;
-
-  letter-spacing: -0.025em;
-}
-h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family:
     -apple-system,
     BlinkMacSystemFont,
@@ -130,7 +97,11 @@ h6{
   letter-spacing: -0.025em;
 }
 
+/* Links */
 
+a {
+  text-decoration: none;
+}
 
 /* ========================================
    PREMIUM HERO BACKGROUND
@@ -139,26 +110,38 @@ h6{
 .hero-background {
   position: absolute;
   inset: 0;
+
   overflow: hidden;
   pointer-events: none;
+
   z-index: 0;
+
   background: #050505;
 }
 
-/* Gradient spheres */
+/* ========================================
+   GRADIENT SPHERES
+======================================== */
 
 .hero-sphere {
   position: absolute;
+
   border-radius: 9999px;
+
   filter: blur(90px);
+
   opacity: 0.45;
-  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+
   will-change: transform;
 }
 
 .hero-sphere-one {
   width: 38vw;
   height: 38vw;
+
   min-width: 320px;
   min-height: 320px;
 
@@ -173,12 +156,14 @@ h6{
       transparent 70%
     );
 
-  animation: heroFloatOne 18s ease-in-out infinite alternate;
+  animation:
+    heroFloatOne 18s ease-in-out infinite alternate;
 }
 
 .hero-sphere-two {
   width: 42vw;
   height: 42vw;
+
   min-width: 350px;
   min-height: 350px;
 
@@ -193,12 +178,14 @@ h6{
       transparent 70%
     );
 
-  animation: heroFloatTwo 22s ease-in-out infinite alternate;
+  animation:
+    heroFloatTwo 22s ease-in-out infinite alternate;
 }
 
 .hero-sphere-three {
   width: 28vw;
   height: 28vw;
+
   min-width: 240px;
   min-height: 240px;
 
@@ -213,13 +200,17 @@ h6{
       transparent 70%
     );
 
-  animation: heroFloatThree 25s ease-in-out infinite alternate;
+  animation:
+    heroFloatThree 25s ease-in-out infinite alternate;
 }
 
-/* Center glow */
+/* ========================================
+   CENTER GLOW
+======================================== */
 
 .hero-center-glow {
   position: absolute;
+
   width: 55vw;
   height: 45vh;
 
@@ -237,10 +228,13 @@ h6{
 
   filter: blur(45px);
 
-  animation: heroPulse 9s ease-in-out infinite alternate;
+  animation:
+    heroPulse 9s ease-in-out infinite alternate;
 }
 
-/* Grid */
+/* ========================================
+   GRID
+======================================== */
 
 .hero-grid {
   position: absolute;
@@ -275,11 +269,14 @@ h6{
     );
 }
 
-/* Particles */
+/* ========================================
+   PARTICLES
+======================================== */
 
 .hero-particles {
   position: absolute;
   inset: 0;
+
   overflow: hidden;
 }
 
@@ -299,7 +296,9 @@ h6{
     heroParticleFloat linear infinite;
 }
 
-/* Noise */
+/* ========================================
+   NOISE
+======================================== */
 
 .hero-noise {
   position: absolute;
@@ -372,17 +371,20 @@ h6{
   }
 
   100% {
-    transform: translate3d(
-      var(--particle-x, 10px),
-      -120px,
-      0
-    );
+    transform:
+      translate3d(
+        var(--particle-x, 10px),
+        -120px,
+        0
+      );
 
     opacity: 0;
   }
 }
 
-/* Mobile */
+/* ========================================
+   MOBILE
+======================================== */
 
 @media (max-width: 768px) {
   .hero-sphere {
@@ -413,7 +415,9 @@ h6{
   }
 }
 
-/* Accessibility */
+/* ========================================
+   ACCESSIBILITY
+======================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .hero-sphere,
