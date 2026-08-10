@@ -14,9 +14,9 @@ export default function Navbar() {
             className="flex items-center"
           >
             <img
-              src="/logo.png"
+              src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Vasudevan Logo"
-              className="h-10 w-10 object-contain"
+              loading="lazy"
             />
           </a>
           <ul className="hidden items-center gap-1 md:flex">
@@ -26,7 +26,6 @@ export default function Navbar() {
                   href={link.href}
                   className="rounded-full px-4 py-2 text-sm text-[#9494a8] transition hover:bg-white/5 hover:text-white"
                 >
-
                   {link.label}
                 </a>
               </li>
@@ -49,24 +48,28 @@ export default function Navbar() {
           >
             <div className="space-y-1.5">
               <span
-                className={`block h-0.5 w-5 bg-white transition ${menuOpen ? "translate-y-2 rotate-45" : ""
-                  }`}
+                className={`block h-0.5 w-5 bg-white transition ${
+                  menuOpen ? "translate-y-2 rotate-45" : ""
+                }`}
               />
               <span
-                className={`block h-0.5 w-5 bg-white transition ${menuOpen ? "opacity-0" : ""
-                  }`}
+                className={`block h-0.5 w-5 bg-white transition ${
+                  menuOpen ? "opacity-0" : ""
+                }`}
               />
               <span
-                className={`block h-0.5 w-5 bg-white transition ${menuOpen ? "-translate-y-2 -rotate-45" : ""
-                  }`}
+                className={`block h-0.5 w-5 bg-white transition ${
+                  menuOpen ? "-translate-y-2 -rotate-45" : ""
+                }`}
               />
             </div>
           </button>
         </div>
 
         <div
-          className={`overflow-hidden transition-all duration-300 md:hidden ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            }`}
+          className={`overflow-hidden transition-all duration-300 md:hidden ${
+            menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          }`}
         >
           <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
             {navLinks.map((link, index) => (
@@ -76,7 +79,6 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center rounded-xl px-4 py-3 text-sm text-[#9494a8] hover:bg-white/5 hover:text-white"
                 >
-
                   {link.label}
                 </a>
               </li>
@@ -97,4 +99,3 @@ export default function Navbar() {
     </header>
   );
 }
-

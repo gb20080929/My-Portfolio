@@ -74,7 +74,9 @@ body {
 /* Images */
 
 img {
-  max-width: 100%;
+  width: 40px;
+  height: 40px;
+  border-radius: 20%;
 }
 
 /* Headings */

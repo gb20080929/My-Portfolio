@@ -4,7 +4,7 @@ const contactLinks = [
   {
     name: "Email",
     image: `${base}gmail.png`,
-    href: "mailto:gb200809@gmail.com",
+    href: "https://mail.google.com/mail/u/1/#inbox?compose=new",
     alt: "Gmail",
   },
   {
@@ -16,7 +16,7 @@ const contactLinks = [
   {
     name: "LinkedIn",
     image: `${base}linkedin.png`,
-    href: "#",
+    href: "https://www.linkedin.com/in/good-boy-3bb598347/",
     alt: "LinkedIn",
   },
   {
