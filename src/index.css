@@ -58,17 +58,16 @@ body {
     "Segoe UI",
     sans-serif;
 
-  background: #fffdfd;
-  color: #000000;
-
+  background:  #02021b;
+  color: #030033;
   overflow-x: hidden;
 }
 
 /* Selection */
 
 ::selection {
-  background: rgba(129, 140, 248, 0.35);
-  color: #ffffff;
+  background: #021658;
+  color: #010a26;
 }
 
 /* Images */
@@ -118,7 +117,7 @@ a {
 
   z-index: 0;
 
-  background: #050505;
+  background: #000514;
 }
 
 /* ========================================
@@ -128,7 +127,7 @@ a {
 .hero-sphere {
   position: absolute;
 
-  border-radius: 9999px;
+  border-radius: 99999px;
 
   filter: blur(90px);
 
@@ -245,12 +244,12 @@ a {
   background-image:
     linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.025) 1px,
+      rgba(900, 300, 300, 0.050) 1.5px,
       transparent 1px
     ),
     linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.025) 1px,
+      rgba(900, 300, 300, 0.050) 1.5px,
       transparent 1px
     );
 

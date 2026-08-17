@@ -73,7 +73,7 @@ export default function Hero() {
             ========================= */}
             <div className="flex flex-wrap items-center gap-5">
               <span className="text-xs uppercase tracking-[0.2em] text-[#666679]">
-                Find me on
+                
               </span>
 
               <a
@@ -82,7 +82,7 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="text-sm text-[#9494a8] transition-colors duration-300 hover:text-white"
               >
-                GitHub
+                
               </a>
 
               <a
@@ -91,14 +91,14 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 className="text-sm text-[#9494a8] transition-colors duration-300 hover:text-white"
               >
-                LinkedIn
+                
               </a>
 
               <a
                 href={`mailto:${social.email}`}
                 className="text-sm text-[#9494a8] transition-colors duration-300 hover:text-white"
               >
-                Email
+                
               </a>
             </div>
           </div>
