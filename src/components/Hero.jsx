@@ -1,5 +1,4 @@
 import { stats, social } from "../data";
-import HeroBackground from "./HeroBackground";
 
 export default function Hero() {
   return (
@@ -7,9 +6,6 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen overflow-hidden px-4 py-24 sm:px-6 lg:px-8"
     >
-      {/* Animated premium background */}
-      <HeroBackground />
-
       {/* Hero content */}
       <div className="relative z-10 mx-auto flex min-h-[calc(100vh-12rem)] w-full max-w-6xl items-center">
         <div className="grid w-full items-center gap-16 lg:grid-cols-[1.2fr_0.8fr]">
@@ -19,7 +15,7 @@ export default function Hero() {
           ========================= */}
           <div>
             {/* Intro */}
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-indigo-400">
+            <p className="mb-4 text-sm font-medium uppercase tracking-[0.25em] text-sky-400">
               Hey, I&apos;m
             </p>
 
@@ -31,13 +27,13 @@ export default function Hero() {
             {/* Role */}
             <h2 className="mb-6 max-w-2xl text-2xl font-semibold leading-tight text-zinc-300 sm:text-3xl">
               I build things for the{" "}
-              <span className="text-indigo-400">
+              <span className="text-sky-400 font-semibold">
                 web.
               </span>
             </h2>
 
             {/* Description */}
-            <p className="mb-8 max-w-2xl text-base leading-8 text-[#9494a8] sm:text-lg">
+            <p className="mb-8 max-w-2xl text-base leading-8 text-[#a7b0c4] sm:text-lg">
               A passionate web developer focused on creating
               futuristic, responsive, and elegant digital
               experiences. I turn ideas into clean and
@@ -51,7 +47,7 @@ export default function Hero() {
             <div className="mb-10 flex flex-wrap gap-4">
               <a
                 href="#projects"
-                className="group rounded-xl bg-indigo-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 transition duration-300 hover:-translate-y-1 hover:bg-indigo-400 hover:shadow-indigo-500/30"
+                className="group rounded-xl bg-sky-500 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-sky-500/25 transition duration-300 hover:-translate-y-1 hover:bg-sky-400 hover:shadow-sky-500/40"
               >
                 View My Work
 
@@ -62,7 +58,7 @@ export default function Hero() {
 
               <a
                 href="#contact"
-                className="rounded-xl border border-white/10 bg-white/[0.04] px-7 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-white/[0.08]"
+                className="rounded-xl border border-sky-500/20 bg-sky-950/30 px-7 py-3.5 text-sm font-semibold text-sky-200 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:bg-sky-900/40 hover:text-white"
               >
                 Let&apos;s Talk
               </a>
@@ -71,34 +67,63 @@ export default function Hero() {
             {/* =========================
                 SOCIAL LINKS
             ========================= */}
-            <div className="flex flex-wrap items-center gap-5">
-              <span className="text-xs uppercase tracking-[0.2em] text-[#666679]">
-                
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="mr-1 text-xs uppercase tracking-[0.2em] text-[#666679]">
+                Connect:
               </span>
 
               <a
                 href={social.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[#9494a8] transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
               >
-                
+                <img
+                  src={`${import.meta.env.BASE_URL}github.png`}
+                  alt="GitHub"
+                  className="h-4 w-4 object-contain"
+                />
+                GitHub
               </a>
 
               <a
                 href={social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-[#9494a8] transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
               >
-                
+                <img
+                  src={`${import.meta.env.BASE_URL}linkedin.png`}
+                  alt="LinkedIn"
+                  className="h-4 w-4 object-contain"
+                />
+                LinkedIn
               </a>
 
               <a
                 href={`mailto:${social.email}`}
-                className="text-sm text-[#9494a8] transition-colors duration-300 hover:text-white"
+                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
               >
-                
+                <img
+                  src={`${import.meta.env.BASE_URL}gmail.png`}
+                  alt="Email"
+                  className="h-4 w-4 object-contain"
+                />
+                Email
+              </a>
+
+              <a
+                href={social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}instagram.png`}
+                  alt="Instagram"
+                  className="h-4 w-4 object-contain"
+                />
+                Instagram
               </a>
             </div>
           </div>

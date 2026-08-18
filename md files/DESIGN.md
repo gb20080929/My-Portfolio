@@ -1,23 +1,24 @@
 # UI/UX & Design Guidelines (DESIGN.md)
 
 ## 1. Design Philosophy
-The design philosophy for this portfolio focuses on minimalism, high typography contrast, fluid responsiveness, and intuitive navigation. The visual hierarchy ensures that key information—such as core skills, featured projects, and contact channels—is immediately accessible to visitors.
+The design philosophy for the **Vasudevan Portfolio Website** focuses on modern minimalism, sleek dark-mode aesthetic, vibrant accent lighting, typography contrast, fluid motion, and responsive navigation. The visual hierarchy ensures core skills, featured projects, experience, and contact channels are immediately accessible.
 
 ---
 
-## 2. Color Palette & Theming
+## 2. Color Palette & Aesthetic
 
-### Dark Mode (Default)
-* **Background:** `#0f172a` (Slate 900)
-* **Surface / Cards:** `#1e293b` (Slate 800)
+### Dark Mode Aesthetic (Default)
+* **Canvas Background:** `#090d16` / `#0f172a` (Deep Slate / Dark Mesh)
+* **Surface / Cards:** `#1e293b` (Slate 800) with subtle glassmorphism (`backdrop-blur-md`, `border-white/10`)
 * **Text Primary:** `#f8fafc` (Slate 50)
 * **Text Secondary:** `#94a3b8` (Slate 400)
 * **Primary Accent:** `#38bdf8` (Sky 400)
-* **Secondary Accent:** `#6366f1` (Indigo 500)
+* **Secondary Accent:** `#6366f1` / `#818cf8` (Indigo 500/400)
+* **Glow & Gradient Accents:** Cyan-to-Indigo radial gradients for hero background particle visuals
 
-### Light Mode
-* **Background:** `#f8fafc` (Slate 50)
-* **Surface / Cards:** `#ffffff` (White)
+### Light Mode Adaptation (Optional)
+* **Canvas Background:** `#f8fafc` (Slate 50)
+* **Surface / Cards:** `#ffffff` (White Card with subtle shadow `shadow-sm`)
 * **Text Primary:** `#0f172a` (Slate 900)
 * **Text Secondary:** `#64748b` (Slate 500)
 * **Primary Accent:** `#0284c7` (Sky 600)
@@ -25,35 +26,42 @@ The design philosophy for this portfolio focuses on minimalism, high typography 
 
 ---
 
-## 3. Typography & Hierarchy
+## 3. Typography & Visual Hierarchy
 
-* **Primary Font:** Inter / System Sans-Serif (`font-sans`)
+* **Primary Font:** Geist Variable (`@fontsource-variable/geist`) / Inter (`font-sans`)
 * **Code / Tech Stack Tags:** JetBrains Mono / Fira Code (`font-mono`)
 
-### Scale:
-* **Hero Headline (H1):** `text-4xl` to `text-6xl` (`bold`)
-* **Section Title (H2):** `text-2xl` to `text-3xl` (`semibold`)
-* **Card Title (H3):** `text-xl` (`medium`)
-* **Body Text:** `text-base` / `text-sm` (`normal`, line-height: `1.6`)
+### Typography Scale:
+* **Hero Headline (H1):** `text-4xl` to `text-6xl` (`font-bold`, `tracking-tight`)
+* **Section Header (H2):** `text-3xl` to `text-4xl` (`font-bold`, accent gradient underline)
+* **Card Header (H3):** `text-xl` (`font-semibold`)
+* **Body Text:** `text-base` / `text-sm` (`font-normal`, `leading-relaxed`)
+* **Badges & Micro-copy:** `text-xs` (`font-medium`, `uppercase`, `tracking-wider`)
 
 ---
 
-## 4. UI Components & Layout Guidelines
+## 4. UI Components & Interaction Guidelines
 
-1. **Navigation:**
-   * Fixed/Sticky navbar with blur background backdrop (`backdrop-blur-md`).
-   * Subtle active link indicator and hover animations.
+1. **Header & Navigation Bar (`Navbar.jsx`):**
+   * Fixed top navigation with frosted glass blur backdrop (`backdrop-blur-md bg-slate-950/80`).
+   * Smooth active indicator on link hover and mobile drawer animation.
 
-2. **Project Cards:**
-   * Grid layout (1 column on mobile, 2–3 columns on desktop).
-   * Hover effects: Slight vertical elevation (`-translate-y-1`) and border accent highlight.
-   * Prominent tag styling for tech stack badges and quick links (GitHub, Live Demo).
+2. **Hero & Interactive Background (`Hero.jsx` & `HeroBackground.jsx`):**
+   * Particle visuals and animated glowing background gradient.
+   * Call to Action (CTA) buttons: "View Work", "Get in Touch", and quick social links.
 
-3. **Buttons & Interactivity:**
-   * Clear primary CTA buttons with filled accent colors.
-   * Secondary outline buttons with subtle hover transitions.
-   * Touch-friendly hit targets (minimum 44x44px for touch devices).
+3. **Featured Tech Stack (`FeaturedStack.jsx`):**
+   * Highlighted badge icons powered by Lucide & React Icons.
+   * Responsive layout with subtle hover scaling (`hover:scale-105 transition-transform`).
 
-4. **Animations & Micro-interactions:**
-   * Smooth scrolling enabled (`scroll-behavior: smooth`).
-   * Subtle entry animations on page load / scroll reveal (Framer Motion / CSS transitions).
+4. **Project Grid (`Projects.jsx`):**
+   * Multi-column grid (1 column on mobile, 2–3 on desktop).
+   * Project cards featuring tech stack badges, GitHub source repository link, and live demo buttons.
+
+5. **Contact Channel & Form (`Contact.jsx`):**
+   * Clean input fields with clear focus rings (`focus:ring-2 focus:ring-sky-400`).
+   * Direct access buttons for email, LinkedIn, and GitHub profiles.
+
+6. **Animations & Micro-interactions (`Motion`):**
+   * Smooth entry reveal animations on section scroll.
+   * Responsive touch targets (minimum 44x44px target area for mobile usability).

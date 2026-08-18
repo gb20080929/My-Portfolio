@@ -20,8 +20,12 @@ export default function About() {
           {/* Main About Card */}
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm sm:p-9">
             <div className="mb-7 flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-indigo-400/20 bg-indigo-500/10 text-xl font-bold text-indigo-300">
-                V 
+              <div className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-2xl border border-indigo-400/20 bg-indigo-500/10 text-xl font-bold text-indigo-300">
+                <img
+                  src={`${import.meta.env.BASE_URL}vasu.png`}
+                  alt="Vasudevan Profile"
+                  className="h-full w-full object-cover"
+                />
               </div>
 
               <div>

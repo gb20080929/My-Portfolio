@@ -1,17 +1,17 @@
 # Development Rules & Coding Standards (RULES.md)
 
 ## 1. Overview
-This document establishes coding standards, Git workflows, accessibility standards, and contribution guidelines for the portfolio project.
+This document establishes coding standards, Git workflows, component conventions, accessibility standards, and quality requirements for the **Vasudevan Portfolio Website**.
 
 ---
 
 ## 2. Coding Standards & Best Practices
 
-### Code Style & Formatting:
-* **JS/JSX:** Use ES6+ syntax, clear variable naming (camelCase), and functional React components with hooks.
-* **HTML/JSX Markup:** Use semantic HTML elements (`<header>`, `<nav>`, `<main>`, `<section>`, `<footer>`, `<article>`).
-* **CSS/Tailwind:** Keep utility classes organized logically; extract repetitive component styles using `@apply` or dedicated components when applicable.
-* **Formatting:** Enforce code styling using Prettier and linting using ESLint.
+### Code Style & React Standards:
+* **React 19 & JSX:** Use functional React components with hooks (`useState`, `useEffect`, `useMemo`). Keep component code clean and modular.
+* **Semantic HTML:** Use proper semantic container tags (`<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`).
+* **Styling (Tailwind CSS v4):** Utilize utility classes effectively; extract complex inline styles into reusable components or Tailwind helper classes.
+* **Component Organization:** Keep components located in `src/components/` and centralize shared data inside `src/data.js`.
 
 ---
 
@@ -19,21 +19,28 @@ This document establishes coding standards, Git workflows, accessibility standar
 
 ### Branch Strategy:
 * `main`: Production-ready code only.
-* `feature/<feature-name>`: Individual features or updates (e.g., `feature/contact-form`, `feature/dark-mode`).
-* `fix/<bug-description>`: Bug fixes and performance patches.
+* `feature/<feature-name>`: New feature implementations (e.g., `feature/contact-form`, `feature/hero-background`).
+* `fix/<bug-description>`: Bug fixes and performance adjustments.
 
 ### Commit Conventions:
-Follow Conventional Commits structure:
-* `feat: add interactive project filter`
-* `fix: correct layout glitch on mobile view`
-* `docs: update RULES.md and ARCHITECTURE.md`
-* `style: tweak theme accent colors`
+Follow Conventional Commits guidelines:
+* `feat: implement interactive project cards component`
+* `fix: correct navbar blur layout on mobile screens`
+* `docs: update ARCHITECTURE.md and README.md`
+* `style: refine background particle glow color palette`
 
 ---
 
-## 4. Accessibility & Quality Rules
+## 4. Accessibility & Performance Guidelines
 
-1. **Images:** All `<img>` tags must include meaningful `alt` text.
-2. **Keyboard Navigation:** All interactive elements (`<button>`, `<a>`, forms) must be accessible via keyboard navigation with visible focus indicators.
-3. **Responsive Testing:** Verify layout and functionality on screen widths: 320px (Mobile), 768px (Tablet), and 1280px+ (Desktop).
-4. **Performance:** Images must be optimized (WebP format preferred) and lazy-loaded where necessary.
+1. **Accessibility (a11y):**
+   * All images and icons must have appropriate `alt` attributes or `aria-label` tags.
+   * Form inputs must be correctly linked with corresponding labels.
+   * Interactive buttons and links must maintain visible focus outlines for keyboard navigation.
+
+2. **Responsive Standards:**
+   * Verify UI across 320px (Mobile Small), 768px (Tablet), 1024px (Desktop), and 1440px+ (Ultra-wide).
+
+3. **Performance Optimization:**
+   * Optimize image sizes and lazy-load visual assets.
+   * Tree-shake unused icons and library imports.

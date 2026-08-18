@@ -5,19 +5,26 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4">
-      <nav className="mx-auto max-w-6xl rounded-2xl border border-white/10 bg-black/40 px-5 py-3 shadow-2xl shadow-black/20 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3">
+      <nav className="mx-auto max-w-6xl rounded-2xl border border-white/10 bg-black/40 px-5 py-2 shadow-2xl shadow-black/20 backdrop-blur-xl">
+        {" "}
         <div className="flex items-center justify-between">
           <a
             href="#"
             onClick={() => setMenuOpen(false)}
-            className="flex items-center"
+            className="group flex items-center gap-2.5"
           >
-            <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Vasudevan Logo"
-              loading="lazy"
-            />
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-0.5 shadow-md shadow-white/20 transition-transform duration-300 group-hover:scale-105">
+              <img
+                src={`${import.meta.env.BASE_URL}logo.png`}
+                alt="Vasudevan Logo"
+                loading="lazy"
+                className="h-full w-full object-contain"
+              />
+            </div>
+            <span className="text-base font-bold tracking-tight text-white">
+              Vasudevan<span className="text-indigo-400">.</span>
+            </span>
           </a>
           <ul className="hidden items-center gap-1 md:flex">
             {navLinks.map((link, index) => (
@@ -65,7 +72,6 @@ export default function Navbar() {
             </div>
           </button>
         </div>
-
         <div
           className={`overflow-hidden transition-all duration-300 md:hidden ${
             menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"

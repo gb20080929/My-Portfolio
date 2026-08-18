@@ -1,33 +1,44 @@
 # Project Context & Memory (MEMORY.md)
 
 ## 1. Overview
-This document serves as persistent memory and context tracking across development sessions for the Personal Portfolio Website.
+This document serves as persistent memory and context tracking across development sessions for the **Vasudevan Portfolio Website**.
 
 ---
 
 ## 2. Key Technical Context & Decisions
-* **Primary Objective:** Build a clean, high-performance, responsive portfolio site.
-* **Core Documentation Created:**
-  * `README.md` – Project introduction and setup instructions.
-  * `PRD.md` – Product Requirements Document defining target audience, user stories, and features.
-  * `ARCHITECTURE.md` – Tech stack, directory layout, and system architecture.
-  * `RULES.md` – Development standards, Git workflows, and coding rules.
-  * `PHASES.md` – 4-phase development roadmap.
-  * `DESIGN.md` – Design philosophy, color scheme, typography, and component styling.
-  * `MEMORY.md` – Project state tracking and context memory.
+* **Primary Objective:** Build a clean, high-performance, responsive React 19 + Vite personal portfolio site.
+* **Core Documentation Inventory:**
+  * `README.md` – Project overview, tech stack highlights, installation, and deployment commands.
+  * `PRD.md` – Product Requirements Document defining target audience, user stories, and feature requirements.
+  * `ARCHITECTURE.md` – System architecture, project structure, component breakdown, data flow, and CI/CD pipeline.
+  * `RULES.md` – Coding standards, Git conventions, accessibility benchmarks, and quality requirements.
+  * `PHASES.md` – 4-phase development roadmap and completion tracking.
+  * `DESIGN.md` – UI/UX design philosophy, color system, typography scale, and component guidelines.
+  * `MEMORY.md` – Project state tracking and context memory (this file).
 
 ---
 
 ## 3. Current Project State
-* **Current Phase:** Phase 1 (Planning & Documentation Setup) - **Complete**
-* **Next Steps (Phase 2):**
-  1. Initialize repository / build tools (React + Vite or Next.js + Tailwind CSS).
-  2. Implement global layout (Navbar, Footer, Theme toggle).
-  3. Construct Hero and About components.
-  4. Build Project and Experience sections.
+* **Phase 1 (Planning & Documentation):** **Complete**
+* **Phase 2 (Core Components & Layout Development):** **Complete**
+  * `Navbar.jsx` with mobile navigation drawer.
+  * `Hero.jsx` & `HeroBackground.jsx` with interactive particle background and motion effects.
+  * `FeaturedStack.jsx` showcasing core technical skills.
+  * `About.jsx` presenting background details and personal bio.
+  * `Skills.jsx` listing technical proficiency categories.
+  * `Projects.jsx` featuring dynamic project cards with live links and repository tags.
+  * `Contact.jsx` & `Footer.jsx` providing direct contact channels and footer navigation.
+* **Phase 3 (Functionality & Integration):** **In Progress**
+  * Data centralization in `src/data.js`.
+  * Motion animation integration (`motion`).
+  * Contact form handling setup.
+* **Phase 4 (Optimization & Deployment):** **Next Steps**
+  * Deployment verification on GitHub Pages (`gh-pages`) / Vercel.
+  * Accessibility and Lighthouse performance audits.
 
 ---
 
-## 4. Environment & Secrets Setup
-* `VITE_FORMSPREE_KEY` / `NEXT_PUBLIC_FORM_ENDPOINT` - Needed for contact form routing.
-* `VITE_GA_TRACKING_ID` - Optional analytics identifier.
+## 4. Environment & Build Configuration
+* `npm run dev` – Launch Vite local development server.
+* `npm run build` – Compile production bundle to `dist/`.
+* `npm run preview` – Serve production preview locally.

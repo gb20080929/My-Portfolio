@@ -31,7 +31,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden border-t border-white/10 bg-[#050505] py-20 sm:py-24"
+      className="relative overflow-hidden border-t border-sky-500/15 bg-transparent py-20 sm:py-24"
     >
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-white/[0.025] blur-3xl" />

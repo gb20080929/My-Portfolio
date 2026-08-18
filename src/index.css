@@ -1,9 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
 
-/* ========================================
-   ROOT
-======================================== */
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================
+   ROOT THEME & COLOR PALETTE
+========================================================= */
 
 :root {
   font-family:
@@ -16,415 +21,456 @@
     sans-serif;
 
   color-scheme: dark;
-  background: #ffffff;
-  color: #000000;
+
+  --bg-primary: #020617;
+  --bg-navy: #0b132b;
+  --bg-navy-card: #0f172a;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+
+  --blue: #38bdf8;
+  --blue-light: #60a5fa;
+  --indigo: #38bdf8;
+  --cyan: #00f0ff;
+
+  --border: rgba(56, 189, 248, 0.15);
+  --shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
 }
 
-/* ========================================
-   TAILWIND THEME
-======================================== */
+/* =========================================================
+   TAILWIND THEME OVERRIDES
+========================================================= */
 
 @theme {
   --font-sans: "Inter", system-ui, sans-serif;
-
-  --color-bg: #050505;
-  --color-surface: #0c0c0c;
-  --color-muted: #9494a8;
-
-  --color-accent: #818cf8;
-  --color-accent-dark: #6366f1;
+  --color-bg: #020617;
+  --color-surface: #0b132b;
+  --color-muted: #94a3b8;
+  --color-accent: #38bdf8;
+  --color-accent-dark: #0284c7;
+  --color-blue: #38bdf8;
+  --color-cyan: #00f0ff;
 }
 
-/* ========================================
-   GLOBAL
-======================================== */
+/* =========================================================
+   GLOBAL STYLES & NAVY BACKGROUND
+========================================================= */
 
 html {
   scroll-behavior: smooth;
-  background: #ffffff;
+  background: #020617;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "SF Pro Display",
-    "SF Pro Text",
     "Inter",
     "Segoe UI",
     sans-serif;
-
-  background:  #02021b;
-  color: #030033;
+  background:
+    radial-gradient(
+      ellipse at 50% -10%,
+      rgba(56, 189, 248, 0.15) 0%,
+      rgba(11, 19, 43, 0.6) 45%,
+      #020617 100%
+    );
+  color: var(--text-primary);
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
-
-/* Selection */
 
 ::selection {
-  background: #021658;
-  color: #010a26;
+  background: rgba(56, 189, 248, 0.35);
+  color: #ffffff;
 }
-
-/* Images */
 
 img {
-  width: 40px;
-  height: 40px;
-  border-radius: 20%;
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
-/* Headings */
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
   font-family:
     -apple-system,
     BlinkMacSystemFont,
     "SF Pro Display",
-    "SF Pro Text",
     "Inter",
-    "Segoe UI",
     sans-serif;
-
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
-
-/* Links */
 
 a {
+  color: inherit;
   text-decoration: none;
+  transition:
+    color 0.3s var(--ease),
+    opacity 0.3s var(--ease);
 }
 
-/* ========================================
-   PREMIUM HERO BACKGROUND
-======================================== */
+/* =========================================================
+   NUCLEAR ENERGY BLAST ANIMATIONS
+========================================================= */
+
+@keyframes nuclearCore {
+  0% {
+    transform: scale(0.1);
+    opacity: 0.2;
+    box-shadow: 0 0 40px 20px rgba(0, 240, 255, 0.4);
+  }
+  40% {
+    transform: scale(3.5);
+    opacity: 1;
+    box-shadow: 0 0 300px 150px rgba(0, 240, 255, 1);
+  }
+  100% {
+    transform: scale(15);
+    opacity: 0;
+    box-shadow: 0 0 500px 250px rgba(56, 189, 248, 0);
+  }
+}
+
+@keyframes nuclearRing1 {
+  0% {
+    transform: scale(0.1);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(4.5);
+    opacity: 0;
+  }
+}
+
+@keyframes nuclearRing2 {
+  0% {
+    transform: scale(0.05);
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(5.5);
+    opacity: 0;
+  }
+}
+
+@keyframes nuclearFlash {
+  0% { opacity: 0; }
+  35% { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+.animate-nuclear-core {
+  animation: nuclearCore 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-nuclear-ring-1 {
+  animation: nuclearRing1 2.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-nuclear-ring-2 {
+  animation: nuclearRing2 2.4s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+
+.animate-nuclear-flash {
+  animation: nuclearFlash 2s ease-out forwards;
+}
+
+/* =========================================================
+   PREMIUM HERO BACKGROUND (NAVY BLUE + LIGHT BLUE)
+========================================================= */
 
 .hero-background {
-  position: absolute;
+  position: fixed;
   inset: 0;
-
   overflow: hidden;
   pointer-events: none;
-
   z-index: 0;
-
-  background: #000514;
+  isolation: isolate;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(56, 189, 248, 0.16),
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 100% 100%,
+      rgba(11, 19, 43, 0.8),
+      transparent 45%
+    ),
+    #020617;
 }
 
-/* ========================================
-   GRADIENT SPHERES
-======================================== */
+.hero-background::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(56, 189, 248, 0.12),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(14, 165, 233, 0.10),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 240, 255, 0.05),
+      transparent 30%
+    );
+  filter: blur(50px);
+  animation: ambientMove 18s ease-in-out infinite alternate;
+  z-index: -2;
+}
 
 .hero-sphere {
   position: absolute;
-
   border-radius: 99999px;
-
   filter: blur(90px);
-
-  opacity: 0.45;
-
-  transition:
-    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-
+  opacity: 0.55;
+  mix-blend-mode: screen;
   will-change: transform;
+  transition: transform 1.4s var(--ease);
 }
 
 .hero-sphere-one {
-  width: 38vw;
-  height: 38vw;
-
-  min-width: 320px;
-  min-height: 320px;
-
+  width: 40vw;
+  height: 40vw;
+  min-width: 300px;
+  min-height: 300px;
   top: -18%;
   left: -12%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.14),
-      rgba(130, 130, 130, 0.04) 45%,
-      transparent 70%
-    );
-
-  animation:
-    heroFloatOne 18s ease-in-out infinite alternate;
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(56, 189, 248, 0.35),
+    rgba(14, 165, 233, 0.12) 42%,
+    transparent 72%
+  );
+  animation: heroFloatOne 16s ease-in-out infinite alternate;
 }
 
 .hero-sphere-two {
-  width: 42vw;
-  height: 42vw;
-
-  min-width: 350px;
-  min-height: 350px;
-
+  width: 45vw;
+  height: 45vw;
+  min-width: 320px;
+  min-height: 320px;
   right: -15%;
-  bottom: -22%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.10),
-      rgba(80, 80, 80, 0.035) 45%,
-      transparent 70%
-    );
-
-  animation:
-    heroFloatTwo 22s ease-in-out infinite alternate;
+  bottom: -25%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(11, 19, 43, 0.8),
+    rgba(56, 189, 248, 0.15) 45%,
+    transparent 72%
+  );
+  animation: heroFloatTwo 21s ease-in-out infinite alternate;
 }
 
 .hero-sphere-three {
-  width: 28vw;
-  height: 28vw;
-
-  min-width: 240px;
-  min-height: 240px;
-
+  width: 30vw;
+  height: 30vw;
+  min-width: 220px;
+  min-height: 220px;
   left: 38%;
-  top: 35%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(255, 255, 255, 0.06),
-      rgba(100, 100, 100, 0.025) 45%,
-      transparent 70%
-    );
-
-  animation:
-    heroFloatThree 25s ease-in-out infinite alternate;
+  top: 32%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 240, 255, 0.18),
+    rgba(56, 189, 248, 0.08) 42%,
+    transparent 72%
+  );
+  animation: heroFloatThree 24s ease-in-out infinite alternate;
 }
-
-/* ========================================
-   CENTER GLOW
-======================================== */
 
 .hero-center-glow {
   position: absolute;
-
-  width: 55vw;
-  height: 45vh;
-
+  width: 65vw;
+  height: 50vh;
   left: 50%;
-  top: 50%;
-
+  top: 48%;
   transform: translate(-50%, -50%);
-
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(255, 255, 255, 0.055),
-      transparent 68%
-    );
-
-  filter: blur(45px);
-
-  animation:
-    heroPulse 9s ease-in-out infinite alternate;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(56, 189, 248, 0.14),
+    rgba(11, 19, 43, 0.4) 35%,
+    transparent 70%
+  );
+  filter: blur(55px);
+  opacity: 0.85;
+  animation: heroPulse 8s ease-in-out infinite alternate;
 }
-
-/* ========================================
-   GRID
-======================================== */
 
 .hero-grid {
   position: absolute;
-  inset: 0;
-
+  inset: -10%;
+  opacity: 0.35;
   background-image:
-    linear-gradient(
-      to right,
-      rgba(900, 300, 300, 0.050) 1.5px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      rgba(900, 300, 300, 0.050) 1.5px,
-      transparent 1px
-    );
-
+    linear-gradient(to right, rgba(56, 189, 248, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
   background-size: 48px 48px;
-
-  mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 10%,
-      transparent 75%
-    );
-
-  -webkit-mask-image:
-    radial-gradient(
-      ellipse at center,
-      black 10%,
-      transparent 75%
-    );
+  transform: perspective(900px) rotateX(55deg) scale(1.4);
+  transform-origin: center bottom;
+  mask-image: radial-gradient(ellipse at center, black 10%, rgba(0, 0, 0, 0.8) 40%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 10%, rgba(0, 0, 0, 0.8) 40%, transparent 75%);
+  animation: gridMove 20s linear infinite;
 }
-
-/* ========================================
-   PARTICLES
-======================================== */
 
 .hero-particles {
   position: absolute;
   inset: 0;
-
   overflow: hidden;
+  perspective: 800px;
 }
 
 .hero-particle {
   position: absolute;
-
   display: block;
-
+  width: 2px;
+  height: 2px;
   border-radius: 9999px;
-
   background: rgba(255, 255, 255, 0.9);
-
   box-shadow:
-    0 0 8px rgba(255, 255, 255, 0.18);
-
-  animation:
-    heroParticleFloat linear infinite;
+    0 0 6px rgba(56, 189, 248, 0.8),
+    0 0 14px rgba(56, 189, 248, 0.4);
+  animation: heroParticleFloat var(--particle-duration, 8s) linear infinite;
+  animation-delay: var(--particle-delay, 0s);
+  opacity: 0;
 }
-
-/* ========================================
-   NOISE
-======================================== */
 
 .hero-noise {
   position: absolute;
   inset: 0;
-
-  opacity: 0.025;
-
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.015;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
 }
 
-/* ========================================
-   ANIMATIONS
-======================================== */
+.glass {
+  background: linear-gradient(135deg, rgba(11, 19, 43, 0.6), rgba(255, 255, 255, 0.025));
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 20px 70px rgba(0, 0, 0, 0.45);
+  transition: transform 0.5s var(--ease), border-color 0.5s var(--ease), box-shadow 0.5s var(--ease);
+}
+
+.glass:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.35);
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.55), 0 0 40px rgba(56, 189, 248, 0.12);
+}
+
+.glow-text {
+  background: linear-gradient(120deg, #ffffff 10%, #e0f2fe 45%, #38bdf8 70%, #60a5fa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  background-size: 200% auto;
+  animation: textShimmer 7s linear infinite;
+}
+
+.glow-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  box-shadow: 0 10px 35px rgba(56, 189, 248, 0.3);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+@keyframes ambientMove {
+  0% { transform: translate3d(-2%, -1%, 0) scale(1); }
+  50% { transform: translate3d(2%, 2%, 0) scale(1.04); }
+  100% { transform: translate3d(-1%, 3%, 0) scale(1.08); }
+}
 
 @keyframes heroFloatOne {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(45px, 30px, 0) scale(1.08);
-  }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(35px, 25px, 0) scale(1.06); }
+  100% { transform: translate3d(70px, 10px, 0) scale(1.1); }
 }
 
 @keyframes heroFloatTwo {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(-35px, -25px, 0) scale(1.1);
-  }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-30px, -20px, 0) scale(1.05); }
+  100% { transform: translate3d(-65px, -40px, 0) scale(1.1); }
 }
 
 @keyframes heroFloatThree {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-
-  to {
-    transform: translate3d(-25px, 35px, 0) scale(1.06);
-  }
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-20px, 30px, 0) scale(1.04); }
+  100% { transform: translate3d(25px, -20px, 0) scale(1.08); }
 }
 
 @keyframes heroPulse {
-  from {
-    opacity: 0.45;
-    transform: translate(-50%, -50%) scale(0.9);
-  }
+  0% { opacity: 0.45; transform: translate(-50%, -50%) scale(0.9); }
+  50% { opacity: 0.7; }
+  100% { opacity: 0.95; transform: translate(-50%, -50%) scale(1.08); }
+}
 
-  to {
-    opacity: 0.85;
-    transform: translate(-50%, -50%) scale(1.08);
-  }
+@keyframes gridMove {
+  from { background-position: 0 0, 0 0; }
+  to { background-position: 48px 48px, 48px 48px; }
 }
 
 @keyframes heroParticleFloat {
-  0% {
-    transform: translate3d(0, 30px, 0);
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 0.4;
-  }
-
-  80% {
-    opacity: 0.15;
-  }
-
-  100% {
-    transform:
-      translate3d(
-        var(--particle-x, 10px),
-        -120px,
-        0
-      );
-
-    opacity: 0;
-  }
+  0% { transform: translate3d(0, 30px, 0) scale(0.7); opacity: 0; }
+  15% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+  80% { opacity: 0.15; }
+  100% { transform: translate3d(var(--particle-x, 10px), -160px, 0) scale(1.2); opacity: 0; }
 }
 
-/* ========================================
-   MOBILE
-======================================== */
+@keyframes textShimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
 
 @media (max-width: 768px) {
-  .hero-sphere {
-    filter: blur(70px);
-  }
-
-  .hero-sphere-one {
-    width: 65vw;
-    height: 65vw;
-  }
-
-  .hero-sphere-two {
-    width: 70vw;
-    height: 70vw;
-  }
-
-  .hero-sphere-three {
-    width: 50vw;
-    height: 50vw;
-  }
-
-  .hero-grid {
-    background-size: 36px 36px;
-  }
-
-  .hero-center-glow {
-    width: 90vw;
-  }
+  .hero-sphere { filter: blur(70px); opacity: 0.45; }
+  .hero-grid { background-size: 36px 36px; opacity: 0.25; transform: perspective(700px) rotateX(55deg) scale(1.5); }
+  .hero-center-glow { width: 95vw; height: 45vh; filter: blur(45px); }
 }
 
-/* ========================================
-   ACCESSIBILITY
-======================================== */
+@theme inline {
+  --font-heading: var(--font-sans);
+  --font-sans: 'Geist Variable', sans-serif;
+  --color-accent: #38bdf8;
+  --color-border: rgba(56, 189, 248, 0.15);
+}
 
-@media (prefers-reduced-motion: reduce) {
-  .hero-sphere,
-  .hero-center-glow,
-  .hero-particle {
-    animation: none;
-    transition: none;
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+}
+
+@layer base {
+  * {
+    border-color: rgba(56, 189, 248, 0.15);
+  }
+  html {
+    font-family: 'Geist Variable', sans-serif;
   }
 }
