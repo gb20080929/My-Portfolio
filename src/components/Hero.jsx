@@ -63,69 +63,6 @@ export default function Hero() {
                 Let&apos;s Talk
               </a>
             </div>
-
-            {/* =========================
-                SOCIAL LINKS
-            ========================= */}
-            <div className="flex flex-wrap items-center gap-4">
-              <span className="mr-1 text-xs uppercase tracking-[0.2em] text-[#666679]">
-                Connect:
-              </span>
-
-              <a
-                href={social.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}github.png`}
-                  alt="GitHub"
-                  className="h-4 w-4 object-contain"
-                />
-                GitHub
-              </a>
-
-              <a
-                href={social.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}linkedin.png`}
-                  alt="LinkedIn"
-                  className="h-4 w-4 object-contain"
-                />
-                LinkedIn
-              </a>
-
-              <a
-                href={`mailto:${social.email}`}
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}gmail.png`}
-                  alt="Email"
-                  className="h-4 w-4 object-contain"
-                />
-                Email
-              </a>
-
-              <a
-                href={social.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2 text-xs font-medium text-[#9494a8] transition-all duration-300 hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/[0.08] hover:text-white"
-              >
-                <img
-                  src={`${import.meta.env.BASE_URL}instagram.png`}
-                  alt="Instagram"
-                  className="h-4 w-4 object-contain"
-                />
-                Instagram
-              </a>
-            </div>
           </div>
 
           {/* =========================
