@@ -14,16 +14,16 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
             className="group flex items-center gap-2.5"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white p-0.5 shadow-md shadow-white/20 transition-transform duration-300 group-hover:scale-105">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-lg border border-sky-500/30 bg-[#050914] p-1 shadow-md shadow-sky-500/10 transition-transform duration-300 group-hover:scale-105">
               <img
                 src={`${import.meta.env.BASE_URL}logo.png`}
                 alt="Vasudevan Logo"
                 loading="lazy"
-                className="h-full w-full object-contain"
+                className="h-full w-full object-contain invert mix-blend-screen"
               />
             </div>
             <span className="text-base font-bold tracking-tight text-white">
-              Vasudevan<span className="text-indigo-400">.</span>
+              Vasudevan<span className="text-sky-400">.</span>
             </span>
           </a>
           <ul className="hidden items-center gap-1 md:flex">

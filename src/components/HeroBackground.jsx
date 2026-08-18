@@ -2,22 +2,23 @@ import { useEffect, useRef } from "react";
 
 export default function HeroBackground() {
   const particlesRef = useRef(null);
+  const sphereOneRef = useRef(null);
+  const sphereTwoRef = useRef(null);
+  const sphereThreeRef = useRef(null);
 
   useEffect(() => {
     const container = particlesRef.current;
 
     if (!container) return;
 
-    const particleCount = 55;
+    const particleCount = 40;
     const particles = [];
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement("span");
-
       particle.className = "hero-particle";
 
       const size = Math.random() * 2.5 + 1;
-
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
       particle.style.left = `${Math.random() * 100}%`;
@@ -30,22 +31,34 @@ export default function HeroBackground() {
       particles.push(particle);
     }
 
-    const handleMouseMove = (event) => {
-      const x = event.clientX / window.innerWidth - 0.5;
-      const y = event.clientY / window.innerHeight - 0.5;
+    let mouseX = 0;
+    let mouseY = 0;
+    let ticking = false;
 
-      const spheres = document.querySelectorAll(".hero-sphere");
-
-      spheres.forEach((sphere, index) => {
-        const strength = index === 0 ? 18 : index === 1 ? 12 : 8;
-
-        sphere.style.transform = `
-          translate(${x * strength}px, ${y * strength}px)
-        `;
-      });
+    const updateSpheres = () => {
+      if (sphereOneRef.current) {
+        sphereOneRef.current.style.transform = `translate3d(${mouseX * 16}px, ${mouseY * 16}px, 0)`;
+      }
+      if (sphereTwoRef.current) {
+        sphereTwoRef.current.style.transform = `translate3d(${mouseX * 10}px, ${mouseY * 10}px, 0)`;
+      }
+      if (sphereThreeRef.current) {
+        sphereThreeRef.current.style.transform = `translate3d(${mouseX * 6}px, ${mouseY * 6}px, 0)`;
+      }
+      ticking = false;
     };
 
-    window.addEventListener("mousemove", handleMouseMove);
+    const handleMouseMove = (event) => {
+      mouseX = event.clientX / window.innerWidth - 0.5;
+      mouseY = event.clientY / window.innerHeight - 0.5;
+
+      if (!ticking) {
+        requestAnimationFrame(updateSpheres);
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
@@ -59,9 +72,9 @@ export default function HeroBackground() {
   return (
     <div className="hero-background" aria-hidden="true">
       {/* Gradient spheres */}
-      <div className="hero-sphere hero-sphere-one" />
-      <div className="hero-sphere hero-sphere-two" />
-      <div className="hero-sphere hero-sphere-three" />
+      <div ref={sphereOneRef} className="hero-sphere hero-sphere-one" />
+      <div ref={sphereTwoRef} className="hero-sphere hero-sphere-two" />
+      <div ref={sphereThreeRef} className="hero-sphere hero-sphere-three" />
 
       {/* Center glow */}
       <div className="hero-center-glow" />
@@ -70,10 +83,7 @@ export default function HeroBackground() {
       <div className="hero-grid" />
 
       {/* Particles */}
-      <div
-        ref={particlesRef}
-        className="hero-particles"
-      />
+      <div ref={particlesRef} className="hero-particles" />
 
       {/* Noise */}
       <div className="hero-noise" />
